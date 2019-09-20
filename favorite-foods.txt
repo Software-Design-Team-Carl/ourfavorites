@@ -7,4 +7,5 @@ Strawberry
 Pizza
 Pear
 Peaches
+Pineapples
 >>>>>>> MESSAGE

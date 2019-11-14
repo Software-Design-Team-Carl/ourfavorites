@@ -31,9 +31,17 @@ class Nutrek:
         returns all nutrients and the amount of each nutrient in a given food
         '''
         food = food.upper()
+        nutrientList = ["Ash_grams", "Biotin_mcg", "Caffeine_mg", "Calcium_Ca_mg", "Carbohydrate_by_difference_g", "Carbohydrate_other_g", "Cholesterol_mg",
+        "Chromium_Cr_mcg", "Copper_Cu_mg", "Fatty_acids_total_monounsaturated_g", "Fatty_acids_total_polyunsaturated_g", "Fatty_acids_total_saturated_g", "Fatty_acids_total_trans_g",
+        "Fiber_insoluble_g", "Fiber_soluble_g", "Fiber_total_dietary_g", "Folic_acid_mcg", "Iodine_I_mcg", "Iron_Fe_mg", "Lactose_g",
+         "Magnesium_Mg_mg", "Manganese_Mn_mg", "Niacin_mg", "Pantothenic_acid_mg", "Phosphorus_P_mg", "Potassium_K_mg",
+         "Protein_g", "Riboflavin_mg", "Selenium_Se_mcg", "Sodium_Na_mg", "Sugars_added_g", "Sugars_total_g", "Thiamin_mg", "Total_lipid_fat_g",
+         "Total_sugar_alcohols_g", "Vitamin_A_IU" , "Vitamin_B12_mcg", "Vitamin_B6_mg", "Vitamin_C_total_ascorbic_acid_mg",
+         "Vitamin_D_IU", "Vitamin_E_label_entry_primarily_IU", "Vitamin_K_phylloquinone_mcg", "Water_g",
+         "Xylitol_g", "Zinc_Zn_mg"]
         try:
             cursor = self.connection.cursor()
-            cursor.execute("SELECT Ash_grams, Biotin_mcg, Caffeine_mg, Calcium_Ca_mg, Carbohydrate_by_difference_g, Carbohydrate_other_g, Cholesterol_mg, Chromium_Cr_mcg, Copper_Cu_mg, Fatty_acids_total_monounsaturated_g, Fatty_acids_total_polyunsaturated_g FROM Nutrek WHERE food_name LIKE " + str("'%"+food+"%'") +";")
+            cursor.execute("SELECT Ash_grams, Biotin_mcg, Caffeine_mg, Calcium_Ca_mg, Carbohydrate_by_difference_g, Carbohydrate_other_g, Cholesterol_mg, Chromium_Cr_mcg, Copper_Cu_mg, Fatty_acids_total_monounsaturated_g, Fatty_acids_total_polyunsaturated_g, Fatty_acids_total_saturated_g, Fatty_acids_total_trans_g, Fiber_insoluble_g, Fiber_soluble_g, Fiber_total_dietary_g, Folic_acid_mcg, Iodine_I_mcg, Iron_Fe_mg, Lactose_g, Magnesium_Mg_mg, Manganese_Mn_mg, Niacin_mg, Pantothenic_acid_mg FROM Nutrek WHERE food_name LIKE " + str("'%"+food+"%'") + ";")
             results = cursor.fetchall()
             fullNutrientList = []
             for item in results:

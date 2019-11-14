@@ -75,7 +75,10 @@ class Nutrek:
         finalIngredients = ingredients.split(" ")
         food = food.upper()
         try:
-            return finalIngredients
+            for item in finalIngredients:
+                if allergen in item:
+                    return True
+            return False
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None

@@ -66,7 +66,17 @@ class Nutrek:
             query = ("SELECT ingredients_english FROM Nutrek WHERE  food_name LIKE " + str("'%"+food+"%'") +";")
             cursor.execute(query)
             results = cursor.fetchall()
-            return str(results[0])
+            results = results[0]
+            FullIngredientList = []
+            for item in results:
+                if "(" in item:
+                    item = item.replace("(", "")
+                if "," in item:
+                    item = item.replace(",", "")
+                if ")" in item:
+                    item = item.replace(")","")
+                FullIngredientList.append(item)
+            return FullIngredientList
 
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)

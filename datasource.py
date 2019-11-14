@@ -121,10 +121,8 @@ class Nutrek:
 
         try:
             for item in nutrientDictionary:
-                item = item.lower()
                 if nutrient in item:
                     return nutrient, nutrientDictionary[item]
-
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None

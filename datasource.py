@@ -148,7 +148,7 @@ def main():
     N.connect(user, password)
     print(N.getNutrients('granola'))
     print("\n")
-    print(N.getIngredientBreakDown('granola'))
+    print(N.getIngredientBreakDown('beef'))
     print("\n")
     print(N.containsAllergen('granola', 'peanut'))
     print("\n")

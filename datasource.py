@@ -33,7 +33,7 @@ class Nutrek:
         food = food.upper()
         try:
             cursor = self.connection.cursor()
-            cursor.execute("SELECT food_name FROM Nutrek WHERE food_name LIKE " + %food% +";")
+            cursor.execute("SELECT food_name FROM Nutrek WHERE food_name LIKE " + "%"+food+ "% " +";")
             results = cursor.fetchall()
             return results
 

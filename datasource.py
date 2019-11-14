@@ -35,7 +35,7 @@ class Nutrek:
         "chromium(mcg)", "copper(mg)", "fatty acids total monounsaturated(g)", "fatty acids total polyunsaturated (g)", "fatty acids total saturated(g)", "fatty acids total trans(g)",
         "fiber insoluble(g)", "fiber soluble(g)", "fiber total dietary(g)", "folic acid(mcg)", "iodine(mcg)", "iron(mg)", "lactose(g)",
          "magnesium(mg)", "manganese(mg)", "niacin(mg)", "pantothenic acid(mg)", "phosphorus (mg)", "potassium(mg)",
-         "protein(g)", "riboflavin(mg)", "selenium(mcg)", "sodium(mg)", "sugars added(g)", "sugars total(g)", "thiamin(mg)", "total lipid fat(g)",
+         "protein", "riboflavin(mg)", "selenium(mcg)", "sodium(mg)", "sugars added(g)", "sugars total(g)", "thiamin(mg)", "total lipid fat(g)",
          "total sugar alcohols(g)", "vitamin a IU" , "vitamin b 12(mcg)", "vitamin b-6(mg)", "vitamin c total ascorbic acid(mg)",
          "vitamin d IU", "vitamin e label entry primarily IU", "vitamin K phylloquinone(mcg)", "water(g)",
          "xylitol(g)", "zinc(mg)"]
@@ -49,7 +49,7 @@ class Nutrek:
             fullNutrientList = []
             results = results1 + results2
             nutrientDictionary = {}
-            finalResult = results[0]
+            finalResult = results
             for nutrient, proportion in zip(nutrientList, finalResult):
                 nutrientDictionary[nutrient] = proportion
             return nutrientDictionary

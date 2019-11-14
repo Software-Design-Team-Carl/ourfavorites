@@ -115,11 +115,8 @@ def main():
     # Connect to the database
     N = Nutrek()
     N.connect(user, password)
-    print(N.getNutrients('granola'))
+    #print(N.getNutrients('granola'))
     print(N.getIngredientBreakDown('granola'))
-    #print(N.getIngredientBreakDown('granola'))
-    #print(N.containsAllergy('granola', 'peanuts'))
-
 
     # Disconnect from database
     N.disconnect()

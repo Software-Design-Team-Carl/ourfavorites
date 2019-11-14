@@ -72,7 +72,9 @@ class Nutrek:
         '''returns True if food contains allergen (could cause allergic reaction) and false if otherwise '''
 
         ingredients = list(self.getIngredientBreakDown(food))
-        ingredients = ingredients.split("(")
+        finalIngredients = []
+        for item in ingredients:
+            finalIngredients.append(ingredients)
         food = food.upper()
         try:
             return ingredients

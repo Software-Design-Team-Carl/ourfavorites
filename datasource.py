@@ -35,7 +35,7 @@ class Nutrek:
         "chromium(mcg)", "copper(mg)", "fatty acids total monounsaturated(g)", "fatty acids total polyunsaturated (g)", "fatty acids total saturated(g)", "fatty acids total trans(g)",
         "fiber insoluble(g)", "fiber soluble(g)", "fiber total dietary(g)", "folic acid(mcg)", "iodine(mcg)", "iron(mg)", "lactose(g)",
          "magnesium(mg)", "manganese(mg)", "niacin(mg)", "pantothenic acid(mg)", "phosphorus (mg)", "potassium(mg)",
-         "protein", "riboflavin(mg)", "selenium(mcg)", "sodium(mg)", "sugars added(g)", "sugars total(g)", "thiamin(mg)", "total lipid fat(g)",
+         "protein(g)", "riboflavin(mg)", "selenium(mcg)", "sodium(mg)", "sugars added(g)", "sugars total(g)", "thiamin(mg)", "total lipid fat(g)",
          "total sugar alcohols(g)", "vitamin a IU" , "vitamin b 12(mcg)", "vitamin b-6(mg)", "vitamin c total ascorbic acid(mg)",
          "vitamin d IU", "vitamin e label entry primarily IU", "vitamin K phylloquinone(mcg)", "water(g)",
          "xylitol(g)", "zinc(mg)"]
@@ -130,7 +130,7 @@ class Nutrek:
         "chromium(mcg)", "copper(mg)", "fatty acids total monounsaturated(g)", "fatty acids total polyunsaturated (g)", "fatty acids total saturated(g)", "fatty acids total trans(g)",
         "fiber insoluble(g)", "fiber soluble(g)", "fiber total dietary(g)", "folic acid(mcg)", "iodine(mcg)", "iron(mg)", "lactose(g)",
         "magnesium(mg)", "manganese(mg)", "niacin(mg)", "pantothenic acid(mg)", "phosphorus (mg)", "potassium(mg)",
-        "protein", "riboflavin(mg)", "selenium(mcg)", "sodium(mg)", "sugars added(g)", "sugars total(g)", "thiamin(mg)", "total lipid fat(g)",
+        "protein(g)", "riboflavin(mg)", "selenium(mcg)", "sodium(mg)", "sugars added(g)", "sugars total(g)", "thiamin(mg)", "total lipid fat(g)",
         "total sugar alcohols(g)", "vitamin a IU" , "vitamin b 12(mcg)", "vitamin b-6(mg)", "vitamin c total ascorbic acid(mg)",
         "vitamin d IU", "vitamin e label entry primarily IU", "vitamin K phylloquinone(mcg)", "water(g)",
         "xylitol(g)", "zinc(mg)"]
@@ -148,7 +148,7 @@ class Nutrek:
                 nutrientDictionary[nutr] = proportion
             for item in nutrientDictionary:
                 if nutrient in item:
-                    return item
+                    return item, nutrientDictionary[item]
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None
@@ -164,8 +164,11 @@ def main():
     N = Nutrek()
     N.connect(user, password)
     print(N.getNutrients('granola'))
+    print("\n")
     print(N.getIngredientBreakDown('granola'))
+    print("\n")
     print(N.containsAllergen('granola', 'peanut'))
+    print("\n")
     print(N.getNutrientThreshold('granola', 'protein', 0.5))
 
     # Disconnect from database

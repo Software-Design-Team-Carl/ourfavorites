@@ -48,7 +48,7 @@ class Nutrek:
             results2 = cursor2.fetchall()
             fullNutrientList = []
             results = results1 + results2
-            return results
+            return results[0]
 
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)

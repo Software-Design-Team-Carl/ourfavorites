@@ -114,7 +114,10 @@ class Nutrek:
             FullIngredientList.append(item)
         food = food.upper()
         try:
-            return allergen in FullIngredientList
+            for ing in FullIngredientList:
+                if allergen in ing:
+                    return True
+            return False
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None

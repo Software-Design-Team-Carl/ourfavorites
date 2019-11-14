@@ -33,7 +33,7 @@ class Nutrek:
         food = food.upper()
         try:
             cursor = self.connection.cursor()
-            cursor.execute("SELECT * FROM Nutrek WHERE food_name LIKE " + str("'%"+food+"%'") +";")
+            cursor.execute("SELECT Ash_grams, Biotin_mcg, Caffeine_mg, Calcium_Ca_mg, Carbohydrate_by_difference_g, Carbohydrate_other_g, Cholesterol_mg, Chromium_Cr_mcg, Copper_Cu_mg, Fatty_acids_total_monounsaturated_g, Fatty_acids_total_polyunsaturated_g FROM Nutrek WHERE food_name LIKE " + str("'%"+food+"%'") +";")
             results = cursor.fetchall()
             fullNutrientList = []
             for item in results:

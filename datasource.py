@@ -74,18 +74,21 @@ class Nutrek:
         ingredients = self.getIngredientBreakDown(food)
         finalIngredients = ingredients.split(" ")
         FullIngredientList = []
+        allergen = allergen.upper()
         for item in finalIngredients:
             if "(" in item:
                 item = item.replace("(", "")
+            if "," in item:
+                item = item.replace(",", "")
             if ")" in item:
                 item = item.replace(")","")
             FullIngredientList.append(item)
         food = food.upper()
         try:
-            # for ing in FullIngredientList:
-            #     if allergen in ing:
-            #         return True
-            # return False
+            for ing in FullIngredientList:
+                if allergen in ing:
+                    return True, FullIngredientList
+            return False
             return FullIngredientList
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)

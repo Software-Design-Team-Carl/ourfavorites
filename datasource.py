@@ -116,7 +116,7 @@ def main():
     N = Nutrek()
     N.connect(user, password)
     print(N.getNutrients('granola'))
-    print(N.getIntredientBreakdown('granola'))
+    print(N.getIngredientBreakDown('granola'))
     #print(N.getIngredientBreakDown('granola'))
     #print(N.containsAllergy('granola', 'peanuts'))
 

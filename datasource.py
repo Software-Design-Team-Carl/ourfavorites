@@ -72,9 +72,14 @@ class Nutrek:
         '''returns True if food contains allergen (could cause allergic reaction) and false if otherwise '''
 
         ingredients = list(self.getIngredientBreakDown(food))
+        while "(" in ingredients:
+            ingredients.remove("(")
+        while ")" in ingredients:
+            ingredients.remove(")")
+            
         food = food.upper()
         try:
-            return allergen in ingredients
+            return ingredients
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None

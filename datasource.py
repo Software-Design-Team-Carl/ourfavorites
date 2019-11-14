@@ -43,8 +43,6 @@ class Nutrek:
 
     def getIngredientBreakDown(self, food):
         ''' returns all the ingredients in a given food item'''
-        # ***contains method doesn't seem to be working - we want to see if the "food_name" OR branded food name contains the user input
-        # i.e. user types in milk and query finds the rows containing milk in the food name column.
         food = food.upper()
         try:
             cursor = self.connection.cursor()
@@ -73,16 +71,10 @@ class Nutrek:
     def containsAllergen(self, food, allergen):
         '''returns True if food contains allergen (could cause allergic reaction) and false if otherwise '''
 
-        ingredients = list(self.getIngredientBreakDown(food)) # how can we call the getIntredientBreakdown method to use here now if it
-        #is now using query
+        ingredients = list(self.getIngredientBreakDown(food))
         food = food.upper()
         try:
-            cursor = connection.cursor()
-            query = "SELECT ingredients_english FROM Nutrek WHERE CONTAINS(food_name, " + str(food) + ")"
-            cursor.execute(query)
-            results = cursor.fetchall()
-            return str(results[0])
-
+            return allergen in ingredients
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None
@@ -117,6 +109,7 @@ def main():
     N.connect(user, password)
     #print(N.getNutrients('granola'))
     print(N.getIngredientBreakDown('granola'))
+    print(N.containsAllergen('granola', 'peanuts'))
 
     # Disconnect from database
     N.disconnect()

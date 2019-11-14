@@ -138,8 +138,8 @@ def main():
     N = Nutrek()
     N.connect(user, password)
     print(N.getNutrients('granola'))
-    #print(N.getIngredientBreakDown('granola'))
-    #print(N.containsAllergen('granola', 'peanut'))
+    print(N.getIngredientBreakDown('granola'))
+    print(N.containsAllergen('granola', 'peanut'))
     print(N.getNutrientThreshold('granola', 'protein', 0.5))
 
     # Disconnect from database

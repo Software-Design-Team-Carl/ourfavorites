@@ -33,7 +33,7 @@ class Nutrek:
         food = food.upper()
         try:
             cursor = self.connection.cursor()
-            cursor.execute("SELECT * FROM Nutrek WHERE " + food + "~ " + "food_name;")
+            cursor.execute("SELECT * FROM Nutrek WHERE position " + "(food_name in "  + food + ")> 0;")
             results = cursor.fetchall()
             return results
 

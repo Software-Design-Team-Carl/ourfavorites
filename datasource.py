@@ -143,6 +143,7 @@ class Nutrek:
             results2 = cursor2.fetchall()
             fullNutrientList = []
             results = results1 + results2
+            results = results[0]
             nutrientDictionary = {}
             for nutr, proportion in zip(nutrientList, results):
                 nutrientDictionary[nutr] = proportion
@@ -153,7 +154,7 @@ class Nutrek:
             print ("Something went wrong when executing the query: ", e)
             return None
 
-        pass
+        pa
 
 def main():
     user = 'odoome'

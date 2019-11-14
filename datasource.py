@@ -147,7 +147,7 @@ class Nutrek:
             for nutrient, proportion in zip(nutrientList, results):
                 nutrientDictionary[nutrient] = proportion
             finalResult = [key for key,value in nutrientDictionary.items() if nutrient in key]
-            return result
+            return finalResult
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None

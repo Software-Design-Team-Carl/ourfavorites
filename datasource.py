@@ -31,14 +31,14 @@ class Nutrek:
         returns all nutrients and the amount of each nutrient in a given food
         '''
         food = food.upper()
-        nutrientList = ["Ash_grams", "Biotin_mcg", "Caffeine_mg", "Calcium_Ca_mg", "Carbohydrate_by_difference_g", "Carbohydrate_other_g", "Cholesterol_mg",
-        "Chromium_Cr_mcg", "Copper_Cu_mg", "Fatty_acids_total_monounsaturated_g", "Fatty_acids_total_polyunsaturated_g", "Fatty_acids_total_saturated_g", "Fatty_acids_total_trans_g",
-        "Fiber_insoluble_g", "Fiber_soluble_g", "Fiber_total_dietary_g", "Folic_acid_mcg", "Iodine_I_mcg", "Iron_Fe_mg", "Lactose_g",
-         "Magnesium_Mg_mg", "Manganese_Mn_mg", "Niacin_mg", "Pantothenic_acid_mg", "Phosphorus_P_mg", "Potassium_K_mg",
-         "Protein_g", "Riboflavin_mg", "Selenium_Se_mcg", "Sodium_Na_mg", "Sugars_added_g", "Sugars_total_g", "Thiamin_mg", "Total_lipid_fat_g",
-         "Total_sugar_alcohols_g", "Vitamin_A_IU" , "Vitamin_B12_mcg", "Vitamin_B6_mg", "Vitamin_C_total_ascorbic_acid_mg",
-         "Vitamin_D_IU", "Vitamin_E_label_entry_primarily_IU", "Vitamin_K_phylloquinone_mcg", "Water_g",
-         "Xylitol_g", "Zinc_Zn_mg"]
+        nutrientList = ["Ash(g)", "Biotin(mcg)", "Caffeine(mg)", "Calcium(mg)", "Carbohydrate by difference(g)", "Carbohydrate_other(g)", "Cholesterol(mg)",
+        "Chromium(mcg)", "Copper(mg)", "Fatty acids total monounsaturated(g)", "Fatty acids total polyunsaturated (g)", "Fatty acids total saturated(g)", "Fatty acids total trans(g)",
+        "Fiber insoluble(g)", "Fiber soluble(g)", "Fiber total dietary(g)", "Folic acid(mcg)", "Iodine(mcg)", "Iron(mg)", "Lactose(g)",
+         "Magnesium(mg)", "Manganese(mg)", "Niacin(mg)", "Pantothenic acid(mg)", "Phosphorus (mg)", "Potassium(mg)",
+         "Protein(g)", "Riboflavin(mg)", "Selenium(mcg)", "Sodium(mg)", "Sugars added(g)", "Sugars total(g)", "Thiamin(mg)", "Total lipid fat(g)",
+         "Total sugar alcohols(g)", "Vitamin A IU" , "Vitamin B-12(mcg)", "Vitamin-B6(mg)", "Vitamin C total ascorbic acid(mg)",
+         "Vitamin D IU", "Vitamin E label entry primarily IU", "Vitamin K phylloquinone(mcg)", "Water(g)",
+         "Xylitol(g)", "Zinc(mg)"]
         try:
             cursor1 = self.connection.cursor()
             cursor1.execute("SELECT Ash_grams, Biotin_mcg, Caffeine_mg, Calcium_Ca_mg, Carbohydrate_by_difference_g, Carbohydrate_other_g, Cholesterol_mg, Chromium_Cr_mcg, Copper_Cu_mg, Fatty_acids_total_monounsaturated_g, Fatty_acids_total_polyunsaturated_g, Fatty_acids_total_saturated_g, Fatty_acids_total_trans_g, Fiber_insoluble_g, Fiber_soluble_g, Fiber_total_dietary_g, Folic_acid_mcg, Iodine_I_mcg, Iron_Fe_mg, Lactose_g, Magnesium_Mg_mg, Manganese_Mn_mg, Niacin_mg, Pantothenic_acid_mg FROM Nutrek WHERE food_name LIKE " + str("'%"+food+"%'") + ";")

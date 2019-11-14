@@ -48,7 +48,11 @@ class Nutrek:
             results2 = cursor2.fetchall()
             fullNutrientList = []
             results = results1 + results2
-            return results[0]
+            nutrientDictionary = {}
+            finalResult = results[0]
+            for nutrient, proportion in zip(nutrientList, results):
+                nutrientDictionary[nutrient] = proportion
+            return nutrientDictionary
 
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)

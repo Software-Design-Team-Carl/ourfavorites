@@ -33,9 +33,18 @@ class Nutrek:
         food = food.upper()
         try:
             cursor = self.connection.cursor()
-            cursor.execute("SELECT food_name FROM Nutrek WHERE food_name LIKE " + str("'%"+food+"%'") +";")
+            cursor.execute("SELECT  FROM Nutrek WHERE food_name LIKE " + str("'%"+food+"%'") +";")
             results = cursor.fetchall()
-            return results
+            fullNutrientList = []
+            for item in results:
+                if "(" in item:
+                    item = item.replace("(", "")
+                if "," in item:
+                    item = item.replace(",", "")
+                if ")" in item:
+                    item = item.replace(")","")
+                fullNutrientList.append(item)
+            return fullNutrientList
 
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
@@ -87,9 +96,8 @@ class Nutrek:
         try:
             for ing in FullIngredientList:
                 if allergen in ing:
-                    return True, FullIngredientList
+                    return True
             return False
-            return FullIngredientList
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None
@@ -97,8 +105,11 @@ class Nutrek:
 
 
     def getNutrientThreshold(self, food, nutrient, nutritionTarget):
-        '''check if the amount of nutrients in a given food is meeting the indicated goal for a user'''
+        '''check if the amount of nutrients in a given food is meeting the indicated goal for a user
+        we need to define this. Greater or Less than?'''
         food = food.upper()
+        nutrients = self.getNutrients(food)
+
         try:
             cursor = connection.cursor()
             query = ("")
@@ -120,9 +131,9 @@ def main():
     # Connect to the database
     N = Nutrek()
     N.connect(user, password)
-    #print(N.getNutrients('granola'))
+    print(N.getNutrients('granola'))
     #print(N.getIngredientBreakDown('granola'))
-    print(N.containsAllergen('granola', 'peanut'))
+    #print(N.containsAllergen('granola', 'peanut'))
 
     # Disconnect from database
     N.disconnect()

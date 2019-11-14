@@ -50,7 +50,7 @@ class Nutrek:
             results = results1 + results2
             nutrientDictionary = {}
             finalResult = results[0]
-            for nutrient, proportion in zip(nutrientList, results):
+            for nutrient, proportion in zip(nutrientList, finalResult):
                 nutrientDictionary[nutrient] = proportion
             return nutrientDictionary
 

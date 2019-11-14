@@ -131,7 +131,7 @@ class Nutrek:
         try:
             for item in nutrientDictionary:
                 if nutrient in item:
-                    return nutrient, nutrientDictionary[item]
+                    return nutrient
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None

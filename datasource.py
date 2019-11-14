@@ -77,7 +77,7 @@ class Nutrek:
             finalIngredients.append(ingredients)
         food = food.upper()
         try:
-            return ingredients
+            return finalIngredients
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None

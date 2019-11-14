@@ -154,8 +154,6 @@ class Nutrek:
             print ("Something went wrong when executing the query: ", e)
             return None
 
-        pa
-
 def main():
     user = 'odoome'
     password = 'tiger672carpet'

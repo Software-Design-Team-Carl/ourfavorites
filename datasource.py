@@ -47,16 +47,8 @@ class Nutrek:
             cursor2.execute("SELECT Phosphorus_P_mg, Potassium_K_mg, Protein_g, Riboflavin_mg, Selenium_Se_mcg, Sodium_Na_mg, Sugars_added_g, Sugars_total_g, Thiamin_mg, Total_lipid_fat_g, Total_sugar_alcohols_g, Vitamin_A_IU , Vitamin_B12_mcg, Vitamin_B6_mg, Vitamin_C_total_ascorbic_acid_mg, Vitamin_D_IU, Vitamin_E_label_entry_primarily_IU, Vitamin_K_phylloquinone_mcg, Water_g, Xylitol_g, Zinc_Zn_mg FROM Nutrek WHERE food_name LIKE " + str("'%"+food+"%'") + ";")
             results2 = cursor2.fetchall()
             fullNutrientList = []
-            results = [results1 + results2]
-            for item in results:
-                if "(" in item:
-                    item = item.replace("(", "")
-                if "," in item:
-                    item = item.replace(",", "")
-                if ")" in item:
-                    item = item.replace(")","")
-                fullNutrientList.append(item)
-            return fullNutrientList[0]
+            results = results1 + results2
+            return results
 
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)

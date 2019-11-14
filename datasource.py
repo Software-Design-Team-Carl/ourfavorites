@@ -116,14 +116,14 @@ class Nutrek:
         '''check if the amount of nutrients in a given food is meeting the indicated goal for a user
         we need to define this. Greater or Less than?'''
         food = food.upper()
-        nutrients = self.getNutrients(food)
+        nutrient = nutrient.lower()
+        nutrientDictionary = self.getNutrients(food)
 
         try:
-            cursor = connection.cursor()
-            query = ("")
-            cursor.execute(query)
-            results = cursor.fetchall()
-            return str(results[0])
+            for item in nutrientDictionary:
+                item = item.lower()
+                if nutrient in item:
+                    return nutrient, nutrientDictionary[item]
 
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
@@ -142,6 +142,7 @@ def main():
     print(N.getNutrients('granola'))
     #print(N.getIngredientBreakDown('granola'))
     #print(N.containsAllergen('granola', 'peanut'))
+    print(N.getNutrientThreshold('granola', 'protein', 0.5))
 
     # Disconnect from database
     N.disconnect()

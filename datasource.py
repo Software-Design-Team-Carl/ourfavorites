@@ -127,13 +127,9 @@ class Nutrek:
         food = food.upper()
         nutrient = nutrient.lower()
         nutrientDictionary = self.getNutrients(food)
-
         try:
-            for item in nutrientDictionary:
-                if nutrient not in item:
-                    pass
-                else:
-                    return nutrient
+            result = [value for key,value in nutrientDictionary.items() if nutrient in key]
+            return result
         except Exception as e:
             print ("Something went wrong when executing the query: ", e)
             return None

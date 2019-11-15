@@ -54,7 +54,10 @@ class Nutrek:
                 results.append(j)
             nutrientDictionary = {}
             for nutrient, proportion in zip(nutrientList, results):
-                nutrientDictionary[nutrient] = proportion
+                nutrientDictionary[nutrient] = int(proportion)
+            proportionsList = nutrientDictionary.values()
+            if sum(proportionsList) == 0:
+                return "We have inadequate data on this food item."
             return nutrientDictionary
 
         except Exception as e:
@@ -126,8 +129,8 @@ class Nutrek:
 
 
     def checkNutrientThreshold(self, food, nutrient):
-        '''check if the amount of nutrients in a given food is meeting the indicated goal for a user
-        we need to define this. Greater or Less than?'''
+        '''check if the amount of nutrients in a given food to enable them see if
+         they are meeting a nutritional goal.'''
         food = food.upper()
         nutrient = nutrient.lower()
         try:

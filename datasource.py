@@ -88,7 +88,7 @@ class Nutrek:
     def getFoodAvailable(self):
         '''returns all foods in database'''
         try:
-            cursor = connection.cursor()
+            cursor = self.connection.cursor()
             query = "SELECT food_name FROM Nutrek"
             cursor.execute(query)
             results = cursor.fetchall()

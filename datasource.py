@@ -85,8 +85,9 @@ class Nutrek:
             print ("Something went wrong when executing the query: ", e)
             return None
 
-    def getFoodAvailable(self):
+    def getFoodAvailable(self, food):
         '''returns all foods in database'''
+        food = food.upper()
         try:
             cursor = self.connection.cursor()
             query = ("SELECT food_name FROM Nutrek WHERE food_name LIKE " + str("'%"+food+"%'") +";")
@@ -146,7 +147,7 @@ def main():
     # Connect to the database
     N = Nutrek()
     N.connect(user, password)
-    print(N.getFoodAvailable())
+    print(N.getFoodAvailable('yoghurt'))
     print("\n")
     print(N.getNutrients('granola'))
     print("\n")

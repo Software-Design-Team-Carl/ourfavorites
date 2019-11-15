@@ -89,7 +89,7 @@ class Nutrek:
         '''returns all foods in database'''
         try:
             cursor = self.connection.cursor()
-            query = "SELECT food_name FROM Nutrek WHERE food_name LIKE " + str("'%"+food+"%'") +";")
+            query = ("SELECT food_name FROM Nutrek WHERE food_name LIKE " + str("'%"+food+"%'") +";")
             cursor.execute(query)
             results = cursor.fetchall()
             return results
